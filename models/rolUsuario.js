@@ -2,9 +2,10 @@
 const {
   Model
 } = require('sequelize');
+const rol = require('./rol');
 const usuario = require('./usuario');
 module.exports = (sequelize, DataTypes) => {
-  class postulaciones extends Model {
+  class rolUsuario extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -12,10 +13,11 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      postulaciones.belongsTo(models.usuario, {foreignKey: 'idUsuario'})
+      rolUsuario.belongsTo(models.rol, {foreignKey: 'idRol'});
+      rolUsuario.belongsTo(models.usuario, {foreignKey: 'idUsuario'});
     }
   }
-  postulaciones.init({
+  rolUsuario.init({
     id: {
       allowNull: false,
       autoIncrement: true,
@@ -32,12 +34,20 @@ module.exports = (sequelize, DataTypes) => {
       },
       allowNull: false
     },
-    fecha: DataTypes.STRING,
-    estado: DataTypes.STRING
+    idRol: {
+      type: DataTypes.INTEGER,
+      references:{
+        model: {
+          tableName:'usuario',
+        },
+        key: 'id'
+      },
+      allowNull: false
+    },
   }, {
     sequelize,
-    modelName: 'postulaciones',
-    tableName: 'postulaciones'
+    modelName: 'rolUsuario',
+    tableName: 'rolusuario'
   });
-  return postulaciones;
+  return rolUsuario;
 };
