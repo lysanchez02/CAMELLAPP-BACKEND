@@ -9,12 +9,26 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      idOferta: {
-        type: Sequelize.STRING
-      },
+      idOfertaEmpleo: {
+        type: Sequelize.INTEGER,
+        references:{
+          model: {
+            tableName: 'ofertaEmpleo',
+          },
+          key:'id'
+        },
+        allowNull: false
+            },
       idCategoria: {
-        type: Sequelize.STRING
-      },
+        type: Sequelize.INTEGER,
+        references:{
+          model: {
+            tableName: 'categoria',
+          },
+          key:'id'
+        },
+        allowNull: false
+            },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

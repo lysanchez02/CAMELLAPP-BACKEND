@@ -37,7 +37,7 @@ module.exports = (sequelize, DataTypes) => {
     lugarTrabajo: DataTypes.STRING,
     duracionTrabajo: DataTypes.STRING,
     archivo: DataTypes.STRING,
-    idUsuario: DataTypes.STRING
+
   },
    {
     sequelize,

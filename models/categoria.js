@@ -2,7 +2,8 @@
 const {
   Model
 } = require('sequelize');
-const ofertaEmpleo = require('./ofertaEmpleo')
+const ofertaEmpleo = require('./ofertaEmpleo');
+const intereses = require('./intereses');
 module.exports = (sequelize, DataTypes) => {
   class categoria extends Model {
     /**
@@ -12,7 +13,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      categoria.hasMany(models.ofertaEmpleo, {foreignKey: 'idCategoria'})
+      categoria.hasMany(models.ofertaEmpleo, {foreignKey: 'idCategoria'});
+      categoria.hasMany(models.intereses, {foreignKey: 'idCategoria'});
     }
   }
   categoria.init({

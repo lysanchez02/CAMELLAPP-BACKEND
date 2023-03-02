@@ -2,6 +2,8 @@
 const {
   Model
 } = require('sequelize');
+const categoria = require('./categoria');
+const usuario = require('./usuario');
 module.exports = (sequelize, DataTypes) => {
   class intereses extends Model {
     /**
@@ -11,14 +13,42 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      intereses.belongsTo(models.categoria, {foreignKey: 'idCategoria'});
+      intereses.belongsTo(models.usuario, {foreignKey: 'idUsuario'});
+
     }
   }
   intereses.init({
-    idCategoria: DataTypes.STRING,
-    idUsuario: DataTypes.STRING
+    id: {
+      allowNull: false,
+      autoIncrement: true,
+      primaryKey: true,
+      type: DataTypes.INTEGER
+    },
+    idCategoria: {
+      type: DataTypes.INTEGER,
+      references:{
+        model: {
+          tableName:'categoria',
+        },
+        key: 'id'
+      },
+      allowNull: false
+    }, 
+    idUsuario: {
+      type: DataTypes.INTEGER,
+      references:{
+        model: {
+          tableName:'usuario',
+        },
+        key: 'id'
+      },
+      allowNull: false
+    },
   }, {
     sequelize,
     modelName: 'intereses',
+    tableName: 'intereses'
   });
   return intereses;
 };
