@@ -19,6 +19,16 @@ module.exports = {
         },
         allowNull: false
       },
+      idOfertaEmpleo: {
+        type: Sequelize.INTEGER,
+        references:{
+          model: {
+            tableName: 'ofertaEmpleo',
+          },
+          key:'id'
+        },
+        allowNull: false
+      },
       fecha: {
         type: Sequelize.STRING
       },

@@ -21,9 +21,9 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true,
       type: DataTypes.INTEGER
     },
-    postulante: DataTypes.STRING,
-    empleador: DataTypes.STRING,
-    administrador: DataTypes.STRING
+    rol: DataTypes.STRING,
+    descripcion: DataTypes.STRING,
+    permisos: DataTypes.STRING,
   }, {
     sequelize,
     modelName: 'rol',

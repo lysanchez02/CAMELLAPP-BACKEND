@@ -9,13 +9,13 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      postulante: {
+      rol: {
         type: Sequelize.STRING
       },
-      empleador: {
+      descripcion: {
         type: Sequelize.STRING
       },
-      administrador: {
+      permisos: {
         type: Sequelize.STRING
       },
       createdAt: {
