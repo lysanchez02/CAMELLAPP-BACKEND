@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-const usuario= require ("../models").usuario;
+const usuario= require ("../models/usuario");
 
 module.exports={   
     listarUsuario(req, res) {
@@ -8,7 +8,7 @@ module.exports={
     .catch(error => res.status(400).send(error));
     },
 
-    listarIdusuario(req, res) {
+    listarIdUsuario(req, res) {
    return usuario.findAll({
     where: {
       id: req.params.id 

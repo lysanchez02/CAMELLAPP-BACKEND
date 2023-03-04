@@ -8,10 +8,7 @@ const controllerExperiencia = require ('../controllers/controllerExperiencia');
 const controllerOfertaEmpleo = require ('../controllers/controllerOfertaEmpleo');
 const controllerPostulaciones = require ('../controllers/controllerPostulaciones');
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+
 
 /* rutas usuario */
 router.get('/listarUsuario',controllerUsuario.listarUsuario);

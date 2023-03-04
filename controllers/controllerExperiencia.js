@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-const experiencia= require ("../models").experiencia;
+const experiencia= require ("../models/experiencia");
 
 module.exports={   
     listarExperiencia(req, res) {

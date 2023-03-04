@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-const postulaciones= require ("../models").postulaciones;
+const postulaciones= require ("../models/postulaciones");
 
 module.exports={   
     listarPostulaciones(req, res) {
