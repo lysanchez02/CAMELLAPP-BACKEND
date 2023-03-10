@@ -1,25 +1,25 @@
 const Sequelize = require('sequelize');
-const experiencia= require ("../models/experiencia");
+const experiencias= require ("../models").experiencia;
 
 module.exports={   
     listarExperiencia(req, res) {
-      return experiencia.findAll({})
-      .then(experiencia => res.status(200).send(experiencia))
+      return experiencias.findAll({})
+      .then(experiencias => res.status(200).send(experiencias))
     .catch(error => res.status(400).send(error));
     },
 
     listarIdExperiencia(req, res) {
-   return experiencia.findAll({
+   return experiencias.findAll({
     where: {
       id: req.params.id 
     }
     })
-    .then(experiencia => res.status(200).send(experiencia))
+    .then(experiencias => res.status(200).send(experiencias))
     .catch(error => res.status(400).send(error));
     },
 
    guardarExperiencia(req, res){
-        let experiencia = experiencia  .create({
+        let experiencias = experiencias.create({
                 idUsuario : req.body.idUsuario,
                 titulo: req.body.titulo,
                 descripcion: req.body.descripcion,
@@ -27,15 +27,15 @@ module.exports={
                 duracionTrabajo: req.body.duracionTrabajo,
                 archivo: req.body.archivo,
              
-        }).then(experiencia => res.status(200).send(experiencia))
+        }).then(experiencias => res.status(200).send(experiencias))
         .catch(error => res.status(400).send(error));
 
-            return(experiencia.id); 
+            return(experiencias.id); 
             
     },
      
     eliminarExperiencia(req,res) {
-      return experiencia.destroy({
+      return experiencias.destroy({
         where: {
             id: req.params.id
           }

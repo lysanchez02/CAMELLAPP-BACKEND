@@ -1,25 +1,25 @@
 const Sequelize = require('sequelize');
-const ofertaEmpleo= require ("../models/ofertaEmpleo");
+const ofertasempleo= require ("../models").ofertaempleo;
 
 module.exports={   
-    listarOfertaEmpleo(req, res) {
-      return ofertaEmpleo.findAll({})
-      .then(ofertaEmpleo => res.status(200).send(ofertaEmpleo))
+    listarofertaempleo(req, res) {
+      return ofertasempleo.findAll({})
+      .then(ofertasempleo => res.status(200).send(ofertasempleo))
     .catch(error => res.status(400).send(error));
     },
 
-    listarIdOfertaEmpleo(req, res) {
-   return ofertaEmpleo.findAll({
+    listarIdofertaempleo(req, res) {
+   return ofertasempleo.findAll({
     where: {
       id: req.params.id 
     }
     })
-    .then(ofertaEmpleo => res.status(200).send(ofertaEmpleo))
+    .then(ofertasempleo => res.status(200).send(ofertasempleo))
     .catch(error => res.status(400).send(error));
     },
 
-   guardarOfertaEmpleo(req, res){
-        let ofertaEmpleo = ofertaEmpleo.create({
+   guardarofertaempleo(req, res){
+        let ofertasempleo = ofertasempleo.create({
                 idUsuario : req.body.idUsuario,
                 horario: req.body.horario,
                 salario: req.body.salario,
@@ -27,13 +27,13 @@ module.exports={
                 titulo: req.body.titulo,
                 tiempoContrato: req.body.tiempoContrato
              
-        }).then(ofertaEmpleo => res.status(200).send(ofertaEmpleo))
+        }).then(ofertasempleo => res.status(200).send(ofertasempleo))
         .catch(error => res.status(400).send(error));
-            return(ofertaEmpleo.id); 
+            return(ofertasempleo.id); 
     },
      
-    eliminarOfertaEmpleo(req,res) {
-      return ofertaEmpleo.destroy({
+    eliminarofertaempleo(req,res) {
+      return ofertasempleo.destroy({
         where: {
             id: req.params.id
           }

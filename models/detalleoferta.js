@@ -3,9 +3,9 @@ const {
   Model
 } = require('sequelize');
 const categoria = require('./categoria');
-const ofertaEmpleo = require('./ofertaEmpleo');
+const ofertaempleo = require('./ofertaempleo');
 module.exports = (sequelize, DataTypes) => {
-  class detalleOferta extends Model {
+  class detalleoferta extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -13,22 +13,22 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      detalleOferta.belongsTo(models.categoria, {foreignKey: 'idCategoria'});
-      detalleOferta.belongsTo(models.ofertaEmpleo, {foreignKey: 'idOfertaEmpleo'});
+      detalleoferta.belongsTo(models.categoria, {foreignKey: 'idCategoria'});
+      detalleoferta.belongsTo(models.ofertaempleo, {foreignKey: 'idofertaempleo'});
     }
   }
-  detalleOferta.init({
+  detalleoferta.init({
     id: {
       allowNull: false,
       autoIncrement: true,
       primaryKey: true,
       type: DataTypes.INTEGER
     },
-    idOfertaEmpleo: {
+    idofertaempleo: {
       type: DataTypes.INTEGER,
       references:{
         model: {
-          tableName:'ofertaEmpleo',
+          tableName:'ofertaempleo',
         },
         key: 'id'
       },
@@ -46,8 +46,8 @@ module.exports = (sequelize, DataTypes) => {
     },
   }, {
     sequelize,
-    modelName: 'detalleOferta',
-    tableName: 'detalleOferta'
+    modelName: 'detalleoferta',
+    tableName: 'detalleoferta'
   });
-  return detalleOferta;
+  return detalleoferta;
 };

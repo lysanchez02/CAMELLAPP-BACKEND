@@ -19,11 +19,11 @@ module.exports = {
         },
         allowNull: false
       },
-      idOfertaEmpleo: {
+      idofertaempleo: {
         type: Sequelize.INTEGER,
         references:{
           model: {
-            tableName: 'ofertaEmpleo',
+            tableName: 'ofertaempleo',
           },
           key:'id'
         },

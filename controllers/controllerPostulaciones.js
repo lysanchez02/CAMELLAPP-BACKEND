@@ -1,37 +1,37 @@
 const Sequelize = require('sequelize');
-const postulaciones= require ("../models/postulaciones");
+const postulacion= require ("../models").postulaciones;
 
 module.exports={   
     listarPostulaciones(req, res) {
-      return postulaciones.findAll({})
-      .then(postulaciones => res.status(200).send(postulaciones))
+      return postulacion.findAll({})
+      .then(postulacion => res.status(200).send(postulacion))
     .catch(error => res.status(400).send(error));
     },
 
     listarIdPostulaciones(req, res) {
-   return postulaciones.findAll({
+   return postulacion.findAll({
     where: {
       id: req.params.id 
     }
     })
-    .then(postulaciones => res.status(200).send(postulaciones))
+    .then(postulacion => res.status(200).send(postulacion))
     .catch(error => res.status(400).send(error));
     },
 
    guardarPostulaciones(req, res){
-        let postulaciones = postulaciones.create({
+        let postulacion = postulacion.create({
                 idUsuario : req.body.idUsuario,
-                idOfertaEmpleo : req.body.idOfertaEmpleo,
+                idofertaempleo : req.body.idofertaempleo,
                 fecha: req.body.fecha,
                 estado: req.body.estado
              
-        }).then(postulaciones => res.status(200).send(postulaciones))
+        }).then(postulacion => res.status(200).send(postulacion))
         .catch(error => res.status(400).send(error));
-            return(postulaciones.id); 
+            return(postulacion.id); 
     },
      
     eliminarPostulaciones(req,res) {
-      return postulaciones.destroy({
+      return postulacion.destroy({
         where: {
             id: req.params.id
           }

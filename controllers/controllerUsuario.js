@@ -1,25 +1,25 @@
 const Sequelize = require('sequelize');
-const usuario= require ("../models/usuario");
+const usuarios= require ("../models").usuario;
 
 module.exports={   
     listarUsuario(req, res) {
-      return usuario.findAll({})
-      .then(usuario => res.status(200).send(usuario))
+      return usuarios.findAll({})
+      .then(usuarios => res.status(200).send(usuarios))
     .catch(error => res.status(400).send(error));
     },
 
     listarIdUsuario(req, res) {
-   return usuario.findAll({
+   return usuarios.findAll({
     where: {
       id: req.params.id 
     }
     })
-    .then(usuario => res.status(200).send(usuario))
+    .then(usuarios => res.status(200).send(usuarios))
     .catch(error => res.status(400).send(error));
     },
 
    guardarUsuario(req, res){
-        let usuario = usuario  .create({
+        let usuarios = usuarios  .create({
                 foto : req.body.foto,
                 nombres: req.body.nombres,
                 apellidos: req.body.apellidos,
@@ -31,15 +31,15 @@ module.exports={
                 userName: req.body.userName,
                 password: req.body.password
              
-        }).then(usuario => res.status(200).send(usuario))
+        }).then(usuarios => res.status(200).send(usuarios))
         .catch(error => res.status(400).send(error));
 
-            return(usuario.id); 
+            return(usuarios.id); 
             
     },
      
     eliminarUsuario(req,res) {
-      return usuario.destroy({
+      return usuarios.destroy({
         where: {
             id: req.params.id
           }

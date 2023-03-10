@@ -22,11 +22,11 @@ router.post('/guardarExperiencia',controllerExperiencia.guardarExperiencia);
 router.get('/experiencia/:id', controllerExperiencia.listarIdExperiencia);
 router.delete('/eliminarExperiencia/:id',controllerExperiencia.eliminarExperiencia);
 
-/* rutas ofertaEmpleo */
-router.get('/listarOfertaEmpleo',controllerOfertaEmpleo.listarOfertaEmpleo);
-router.post('/guardarOfertaEmpleo',controllerOfertaEmpleo.guardarOfertaEmpleo);
-router.get('/ofertaEmpleo/:id', controllerOfertaEmpleo.listarIdOfertaEmpleo);
-router.delete('/eliminarOfertaEmpleo/:id',controllerOfertaEmpleo.eliminarOfertaEmpleo);
+/* rutas ofertaempleo */
+router.get('/listarofertaempleo',controllerOfertaEmpleo.listarofertaempleo);
+router.post('/guardarofertaempleo',controllerOfertaEmpleo.guardarofertaempleo);
+router.get('/ofertaempleo/:id', controllerOfertaEmpleo.listarIdofertaempleo);
+router.delete('/eliminarofertaempleo/:id',controllerOfertaEmpleo.eliminarofertaempleo);
 
 /* rutas categoria */
 router.get('/listarCategoria',controllerCategoria.listarCategoria);

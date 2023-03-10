@@ -4,8 +4,8 @@ const {
 } = require('sequelize');
 const experiencia = require('./experiencia');
 const postulaciones = require('./postulaciones');
-const rolUsuario = require('./rolUsuario');
-const ofertaEmpleo = require('./ofertaEmpleo');
+const rolusuario = require('./rolusuario');
+const ofertaempleo = require('./ofertaempleo');
 const intereses = require('./intereses');
 module.exports = (sequelize, DataTypes) => {
   class usuario extends Model {
@@ -18,8 +18,8 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       usuario.hasMany(models.experiencia, {foreignKey: 'idUsuario'});
       usuario.hasMany(models.postulaciones, {foreignKey: 'idUsuario'});
-      usuario.hasMany(models.rolUsuario, {foreignKey: 'idUsuario'});
-      usuario.hasMany(models.ofertaEmpleo, {foreignKey: 'idUsuario'});
+      usuario.hasMany(models.rolusuario, {foreignKey: 'idUsuario'});
+      usuario.hasMany(models.ofertaempleo, {foreignKey: 'idUsuario'});
       usuario.hasMany(models.intereses, {foreignKey: 'idUsuario'});
     }
   }

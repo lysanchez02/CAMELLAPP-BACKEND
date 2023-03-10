@@ -1,38 +1,38 @@
 const Sequelize = require('sequelize');
-const rol= require ("../models/rol");
+const roles= require ("../models").rol;
 
 module.exports={   
     listarRol(req, res) {
-      return rol.findAll({})
-      .then(rol => res.status(200).send(rol))
+      return roles.findAll({})
+      .then(roles => res.status(200).send(roles))
     .catch(error => res.status(400).send(error));
     },
 
     listarIdRol(req, res) {
-   return rol.findAll({
+   return roles.findAll({
     where: {
       id: req.params.id 
     }
     })
-    .then(rol => res.status(200).send(rol))
+    .then(roles => res.status(200).send(roles))
     .catch(error => res.status(400).send(error));
     },
 
    guardarRol(req, res){
-        let rol = rol  .create({
-                rol : req.body.rol,
+        let roles = roles  .create({
+                roles : req.body.roles,
                 descripcion: req.body.descripcion,
                 permisos: req.body.permisos
              
-        }).then(rol => res.status(200).send(rol))
+        }).then(roles => res.status(200).send(roles))
         .catch(error => res.status(400).send(error));
 
-            return(rol.id); 
+            return(roles.id); 
             
     },
      
     eliminarRol(req,res) {
-      return rol.destroy({
+      return roles.destroy({
         where: {
             id: req.params.id
           }

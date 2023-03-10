@@ -3,7 +3,7 @@ const {
   Model
 } = require('sequelize');
 const usuario = require('./usuario');
-const ofertaEmpleo = require('./ofertaEmpleo');
+const ofertaempleo = require('./ofertaempleo');
 module.exports = (sequelize, DataTypes) => {
   class postulaciones extends Model {
     /**
@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       postulaciones.belongsTo(models.usuario, {foreignKey: 'idUsuario'})
-      postulaciones.hasMany(models.ofertaEmpleo, {foreignKey: 'idPostulaciones'})
+      postulaciones.hasMany(models.ofertaempleo, {foreignKey: 'idPostulaciones'})
     }
   }
   postulaciones.init({
@@ -34,11 +34,11 @@ module.exports = (sequelize, DataTypes) => {
       },
       allowNull: false
     },
-    idOfertaEmpleo: {
+    idofertaempleo: {
       type: DataTypes.INTEGER,
       references:{
         model: {
-          tableName:'ofertaEmpleo',
+          tableName:'ofertaempleo',
         },
         key: 'id'
       },

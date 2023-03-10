@@ -1,22 +1,22 @@
 module.exports = {
   up:(queryInterface, Sequelize)=>{
-    return queryInterface.bulkInsert('detalleOferta',[
+    return queryInterface.bulkInsert('detalleoferta',[
       {
-        idOfertaEmpleo: 1,
+        idofertaempleo: 1,
         idCategoria: 1,
       },
       {
-        idOfertaEmpleo: 2,
+        idofertaempleo: 2,
         idCategoria: 9,
       },
       {
-        idOfertaEmpleo: 3,
+        idofertaempleo: 3,
         idCategoria: 3,
       },
     ]
   )
 },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.bulkDelete('detalleOferta', null, {});
+    return queryInterface.bulkDelete('detalleoferta', null, {});
   }
 };
